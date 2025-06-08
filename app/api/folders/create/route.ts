@@ -55,10 +55,12 @@ export async function POST(request: NextRequest) {
         }
 
         //create a folder in database
+        const folderId = uuidv4();
+
         const folderData = {
-            id: uuidv4(),
+            id: folderId,
             name: name.trim(),
-            path: `/folders/${userId}/${uuidv4()}`,
+            path: `/folders/${userId}/${folderId}`,
             size: 0, 
             type: 'folder',
             fileUrl: '', 
